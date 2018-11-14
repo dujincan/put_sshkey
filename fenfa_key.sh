@@ -12,13 +12,10 @@ rm -f /root/.ssh/id_dsa*
 ssh-keygen -t dsa -f /root/.ssh/id_dsa -N ""
 
 # put key to host
-#for ip in 31 41 7
-#do
-#sshpass -p123456 ssh-copy-id -i /root/.ssh/id_dsa.pub "-o StrictHostKeyChecking=no 172.16.1.$ip"
-#done
-
+file=/server/scripts/fenfa_key/hostip.txt
 sshport=22
-while read ip
+
+for ip in `cat $file`
 do
 sshpass -p123456 ssh-copy-id -i /root/.ssh/id_dsa.pub "-o StrictHostKeyChecking=no -p$sshport $ip"
-done < /server/scripts/fenfa_key/hostip.txt
+done

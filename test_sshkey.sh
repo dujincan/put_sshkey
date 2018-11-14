@@ -12,15 +12,11 @@ then
 fi
 
 # ssh no passwd test
-#for ip in 31 41 7
-#do
-#   echo ===== info 172.16.1.$ip =====
-#   ssh 172.16.1.$ip $1
-#   echo ""
-#done
-while read ip
+file=/server/scripts/fenfa_key/hostip.txt
+sshport=22
+for ip in `cat $file`
 do
-   echo ===== info $ip =====
-   ssh $ip $1
+   echo ===== $ip =====
+   ssh -p$sshport $ip $1
    echo ""
-done < /server/scripts/fenfa_key/hostip.txt
+done
