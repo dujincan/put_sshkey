@@ -2,9 +2,9 @@
 
 # 禁用ssh密码登录
 
-path=/server/scripts/fenfa_key
+file=/server/scripts/fenfa_key/hostip.txt
 
-for ip in `cat $path/hostip.txt`
+for ip in `cat $file`
 do
     echo ===== host $ip =====
     ssh $ip "sed -i 's#PasswordAuthentication yes#PasswordAuthentication no#g' /etc/ssh/sshd_config && /etc/init.d/sshd restart"
