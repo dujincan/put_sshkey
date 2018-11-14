@@ -6,7 +6,7 @@
 
 
 # rm old key
-rm -f /root/.ssh/id_dsa*
+#rm -f /root/.ssh/id_dsa*
 
 # create new key
 ssh-keygen -t dsa -f /root/.ssh/id_dsa -N ""
