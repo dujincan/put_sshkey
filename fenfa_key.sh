@@ -17,5 +17,6 @@ sshport=22
 
 for ip in `cat $file`
 do
-sshpass -p123456 ssh-copy-id -i /root/.ssh/id_dsa.pub "-o StrictHostKeyChecking=no -p$sshport $ip"
+sshpass -p123456 ssh-copy-id -i /root/.ssh/id_dsa.pub "-o StrictHostKeyChecking=no -p$sshport $ip"   # centos 6
+#sshpass -p123456 ssh-copy-id -i /root/.ssh/id_dsa.pub -o StrictHostKeyChecking=no  $ip # centos7
 done
